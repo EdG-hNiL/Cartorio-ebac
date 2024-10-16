@@ -92,6 +92,8 @@ int consulta()
 
 int deletar()
 {
+	setlocale(LC_ALL, "Portuguese"); //Definindo a Linguagem
+	
 	char cpf[40];
 	   
 	printf("\nDigite o CPF do usuário à ser deletado: ");
@@ -119,11 +121,24 @@ int deletar()
 
 int main()
 {			
+	setlocale(LC_ALL, "Portuguese"); //Definindo a Linguagem
+	
 	int opcao=0; //Definindo Variáveis
 	int laco=1;
-		
-	for(laco=1;laco=1;)
+	char senhadigitada[]="a";
+	int comparacao;
+	
+	printf("### Cartório EBAC ###\n\n");
+	printf("Login de Administrador!\n\nDigite a sua senha: ");
+	scanf("%s",senhadigitada);
+	
+	comparacao = strcmp(senhadigitada, "admin");
+	
+	if(comparacao == 0)
 	{
+		system ("cls");
+		for(laco=1;laco=1;)
+		{
 		system("cls");
 		
 		setlocale(LC_ALL, "Portuguese"); //Definindo a Linguagem
@@ -133,7 +148,8 @@ int main()
 		printf("\t - Selecione a Opção Desejada:\n\n");
 		printf("\t 1. Registrar Nomes,\n");
 		printf("\t 2. Consultar Nomes,\n");
-		printf("\t 3. Deletar   Nomes.\n\n");
+		printf("\t 3. Deletar   Nomes,\n");
+		printf("\t 4. Sair.\n\n");
 		printf("\tOpção: ");//Fim do Menu
 		
 		scanf("%d", &opcao);//Armazenando a Escolha do Usuário
@@ -141,24 +157,34 @@ int main()
 		system("cls"); //responsável por limpar a tela
 		
 		switch(opcao)//Início da Seleção do menu
-		{
-			case 1:
-			registro();//chamada de funções
-			break;
+			{
+				case 1:
+				registro();//chamada de funções
+				break;
 			
-			case 2:
-			consulta();
-			break;
+				case 2:
+				consulta();
+				break;
 				
-			case 3:
-			deletar();
-			break;
+				case 3:
+				deletar();
+				break;
 				
-			default:
-			printf("\nOpção Não Disponível.\n\n");
-			system("pause");
-			break;
+				case 4:
+				printf("Obrigado por utilizar o sistema!\n");
+				return 0;
+				break;
+				
+				default:
+				printf("\nOpção Não Disponível.\n\n");
+				system("pause");
+				break;
 							
-		}//Fim da Seleção	
+			}//Fim da Seleção	
+		}
 	}
+	
+	else
+	printf("Senha incorreta!");
+	
 }
